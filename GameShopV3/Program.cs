@@ -1,5 +1,6 @@
 using GameShopV3.Application;
 using GameShopV3.Data;
+using GameShopV3.Data.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<GameShopDbContext>(option => {
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GameShopDbContext>();
+
+builder.Services.AddScoped<IPlayerAccountRepository, PlayerAccountRepository>();
 
 var app = builder.Build();
 
