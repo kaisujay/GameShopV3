@@ -17,6 +17,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GameShopDbContext>();
 
 builder.Services.AddScoped<IPlayerAccountRepository, PlayerAccountRepository>();
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaims>();
 
 var app = builder.Build();
 

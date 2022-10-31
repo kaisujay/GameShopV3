@@ -4,7 +4,7 @@
 @if (_signInManager.IsSignedIn(User))
 {
     <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Hello @User.Identity.Name</a>
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Hello <b>@User.FindFirst("UsersName").Value</b> </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" asp-area="" asp-controller="AccountAccess" asp-action="Logout">Logout</a>
         </div>
