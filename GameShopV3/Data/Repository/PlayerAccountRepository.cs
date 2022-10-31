@@ -34,5 +34,10 @@ namespace GameShopV3.Data.Repository
             var res = await _signInManager.PasswordSignInAsync(logInPlayer.UserName, logInPlayer.Password, false, false);
             return res;
         }
+
+        public async Task LogOutPlayerAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }

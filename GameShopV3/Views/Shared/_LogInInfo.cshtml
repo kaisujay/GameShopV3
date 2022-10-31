@@ -1,0 +1,24 @@
+﻿@using GameShopV3.Application
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+
+@if (_signInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Hello @User.Identity.Name</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-area="" asp-controller="AccountAccess" asp-action="Logout">Logout</a>
+        </div>
+    </li>
+    <li>
+        <a class="nav-link text-dark" asp-area="" asp-controller="AccountAccess" asp-action="Register">Register</a>
+    </li>
+}
+else
+{
+    <li>
+        <a class="nav-link text-dark" asp-area="" asp-controller="AccountAccess" asp-action="LogIn">LogIn</a>
+    </li>
+    <li>
+        <a class="nav-link text-dark" asp-area="" asp-controller="AccountAccess" asp-action="Register">Register</a>
+    </li>
+}

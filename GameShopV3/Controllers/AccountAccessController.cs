@@ -57,5 +57,11 @@ namespace GameShopV3.Controllers
             }
             return View(logInPlayer);
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _playerAccountRepository.LogOutPlayerAsync();
+            return RedirectToAction("Index","Home");            
+        }
     }
 }

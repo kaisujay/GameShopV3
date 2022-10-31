@@ -7,5 +7,6 @@ namespace GameShopV3.Data.Repository
     {
         Task<IdentityResult> CreatePlayerAsync(RegisterPlayerViewModel registerPlayer);
         Task<SignInResult> LogInPlayerAsync(LogInPlayerViewModel logInPlayer);
+        Task LogOutPlayerAsync();
     }
 }
