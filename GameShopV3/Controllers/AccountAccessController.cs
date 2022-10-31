@@ -41,5 +41,21 @@ namespace GameShopV3.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(LogInPlayerViewModel logInPlayer)
+        {
+            if(ModelState.IsValid)
+            {
+                var res = await _playerAccountRepository.LogInPlayerAsync(logInPlayer);
+                if(res.Succeeded)
+                {
+                    return RedirectToAction("Index","Home");
+                }
+                ModelState.AddModelError("", "Invalid Credentials");
+
+            }
+            return View(logInPlayer);
+        }
     }
 }

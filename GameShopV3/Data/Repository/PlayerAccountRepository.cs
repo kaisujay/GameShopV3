@@ -8,10 +8,12 @@ namespace GameShopV3.Data.Repository
     public class PlayerAccountRepository : IPlayerAccountRepository
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public PlayerAccountRepository(UserManager<ApplicationUser> userManager)
+        public PlayerAccountRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public async Task<IdentityResult> CreatePlayerAsync(RegisterPlayerViewModel registerPlayer)
         {
@@ -24,6 +26,12 @@ namespace GameShopV3.Data.Repository
             };
 
             var res = await _userManager.CreateAsync(user, registerPlayer.Password);
+            return res;
+        }
+
+        public async Task<SignInResult> LogInPlayerAsync(LogInPlayerViewModel logInPlayer)
+        {
+            var res = await _signInManager.PasswordSignInAsync(logInPlayer.UserName, logInPlayer.Password, false, false);
             return res;
         }
     }

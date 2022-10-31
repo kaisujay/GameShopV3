@@ -6,5 +6,6 @@ namespace GameShopV3.Data.Repository
     public interface IPlayerAccountRepository
     {
         Task<IdentityResult> CreatePlayerAsync(RegisterPlayerViewModel registerPlayer);
+        Task<SignInResult> LogInPlayerAsync(LogInPlayerViewModel logInPlayer);
     }
 }
