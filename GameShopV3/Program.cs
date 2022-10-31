@@ -18,6 +18,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 builder.Services.AddScoped<IPlayerAccountRepository, PlayerAccountRepository>();
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaims>();
+builder.Services.AddScoped<IPlayerServices, PlayerServices>();
 
 var app = builder.Build();
 
