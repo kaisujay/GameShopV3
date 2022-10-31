@@ -1,3 +1,4 @@
+using GameShopV3.Application;
 using GameShopV3.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ builder.Services.AddDbContext<GameShopDbContext>(option => {
     option.UseSqlServer(builder.Configuration.GetConnectionString("GameShopDbConnectionString"));
 });
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GameShopDbContext>();
 
 var app = builder.Build();
