@@ -1,8 +1,21 @@
-﻿@model IEnumerable<GameShopV3.Models.Game>
+﻿@using GameShopV3.Application
+@model IEnumerable<GameShopV3.Models.Game>
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
 
 @{
     ViewData["Title"] = "Index";
+    string PlayerId;
 }
+
+@*#This also Works But lets not use this*@
+@*@if (_signInManager.IsSignedIn(User))
+{
+    PlayerId = @User.FindFirst("UsersId").Value;
+}
+else
+{
+    PlayerId = "NA";
+}*@
 
 <div class="container">
     <div class="row">
@@ -14,8 +27,11 @@
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <p class="card-text">@item.Price</p>
+                        @*For Above code#*@
                         @*<a asp-controller="Cart" asp-action="AddingToCart"
-                       asp-route-GameId="@item.Id" asp-route-PlayerEmail="@playerEmail" class="btn btn-primary">Add</a>*@
+                       asp-route-GameId="@item.Id" asp-route-PlayerId="@PlayerId" class="btn btn-primary">Add</a>*@
+                       <a asp-controller="Cart" asp-action="AddingToCart"
+                       asp-route-GameId="@item.Id" class="btn btn-primary">Add</a>
                     </div>
                 </div>
             </div>

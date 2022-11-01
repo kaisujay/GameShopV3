@@ -50,7 +50,7 @@ namespace GameShopV3.Controllers
                 var res = await _playerAccountRepository.LogInPlayerAsync(logInPlayer);
                 if(res.Succeeded)
                 {
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index","Game");
                 }
                 ModelState.AddModelError("", "Invalid Credentials");
 
@@ -61,7 +61,7 @@ namespace GameShopV3.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _playerAccountRepository.LogOutPlayerAsync();
-            return RedirectToAction("Index","Home");            
+            return RedirectToAction("Index","Game");            
         }
     }
 }

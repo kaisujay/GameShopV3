@@ -1,0 +1,23 @@
+﻿@using GameShopV3.Models.ViewModels
+@model IEnumerable<CartViewModel>
+
+@*@Model.FirstOrDefault().PlayerEmail*@ @*This Works*@
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <img src="~/images/GameImage.jpg" class="card-img-top" alt="Game Image ..">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.GameName</h5>
+                        <p class="card-text">@item.GamePrice</p>
+                    </div>
+                </div>
+            </div>
+        }        
+    </div>
+    <a asp-controller="#" asp-action="#"
+       asp-route-GameId="#" class="btn btn-primary">Order</a>
+</div>

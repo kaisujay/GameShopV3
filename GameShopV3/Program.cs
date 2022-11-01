@@ -20,6 +20,7 @@ builder.Services.AddScoped<IPlayerAccountRepository, PlayerAccountRepository>();
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaims>();
 builder.Services.AddScoped<IPlayerServices, PlayerServices>();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 var app = builder.Build();
 

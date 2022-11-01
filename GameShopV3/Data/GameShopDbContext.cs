@@ -13,5 +13,8 @@ namespace GameShopV3.Data
         }
 
         public DbSet<Game> Games { get; set; }
+        public DbSet<CartModel> Carts { get; set; }
+
+        public DbSet<ApplicationUser> Players { get; set; }
     }
 }
