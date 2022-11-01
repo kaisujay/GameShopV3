@@ -19,6 +19,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 builder.Services.AddScoped<IPlayerAccountRepository, PlayerAccountRepository>();
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaims>();
 builder.Services.AddScoped<IPlayerServices, PlayerServices>();
+builder.Services.AddScoped<IGameRepository, GameRepository>();
 
 var app = builder.Build();
 
@@ -35,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Game}/{action=Index}/{id?}");
 
 app.Run();
