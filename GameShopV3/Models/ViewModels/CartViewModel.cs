@@ -4,6 +4,7 @@
     {
         public string PlayerId { get; set; }
         public string PlayerEmail { get; set; }
+        public int GameId { get; set; }
         public string GameName { get; set; }
         public float GamePrice { get; set; }
     }

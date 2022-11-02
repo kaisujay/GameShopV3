@@ -1,0 +1,42 @@
+﻿@using GameShopV3.Models.ViewModels
+@model IEnumerable<OrderViewModel>
+
+@*<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <img src="~/images/GameImage.jpg" class="card-img-top" alt="Game Image ..">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.GameName</h5>
+                        <p class="card-text">@item.GamePrice</p>
+                        <p class="card-text">@item.OrderId</p>
+                        <p class="card-text">@item.PurchaseDate</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Game</th>
+            <th scope="col">Price</th>
+            <th scope="col">Purchase Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderId</td>
+                <td>@item.GameName</td>
+                <td>@item.GamePrice</td>
+                <td>@item.PurchaseDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -24,6 +24,7 @@ namespace GameShopV3.Data.Repository
                 new
                 {
                     PlayerId = x.PlayerId,
+                    GameId = y.Id,
                     GameName = y.Name,
                     GamePrice = y.Price
                 }).Where(x => x.PlayerId == playerId)
@@ -35,6 +36,7 @@ namespace GameShopV3.Data.Repository
                 {
                     PlayerId = z.PlayerId,
                     PlayerEmail = a.Email,
+                    GameId = z.GameId,
                     GameName = z.GameName,
                     GamePrice = z.GamePrice
                 }).ToListAsync();
