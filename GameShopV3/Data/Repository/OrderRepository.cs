@@ -55,6 +55,8 @@ namespace GameShopV3.Data.Repository
 
                 _shopDbContext.Orders.Add(orderItem);
                 await _shopDbContext.SaveChangesAsync();
+
+                await _cartRepository.EmptyCartAsync(_playerServices.GetUserId());  //Need to Empty Cart after Order has created
             }
         }
     }
